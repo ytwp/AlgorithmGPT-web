@@ -3,22 +3,19 @@ import { useThrottleFn } from 'solidjs-use'
 import { generateSignature } from '@/utils/auth'
 import IconClear from './icons/Clear'
 import MessageItem from './MessageItem'
-import SystemRoleSettings from './SystemRoleSettings'
 import ErrorMessageItem from './ErrorMessageItem'
 import type { ChatMessage, ErrorMessage } from '@/types'
 
 export default () => {
   let inputRef: HTMLTextAreaElement
-  const [currentSystemRoleSettings, setCurrentSystemRoleSettings] = createSignal('')
-  const [systemRoleEditing, setSystemRoleEditing] = createSignal(false)
+  const [systemRoleEditing] = createSignal(false)
   const [messageList, setMessageList] = createSignal<ChatMessage[]>([])
   const [currentError, setCurrentError] = createSignal<ErrorMessage>()
   const [currentAssistantMessage, setCurrentAssistantMessage] = createSignal('')
   const [loading, setLoading] = createSignal(false)
   const [controller, setController] = createSignal<AbortController>(null)
   const [isStick, setStick] = createSignal(false)
-  const [temperature, setTemperature] = createSignal(0.6)
-  const temperatureSetting = (value: number) => { setTemperature(value) }
+  const [temperature] = createSignal(0.6)
   const maxHistoryMessages = parseInt(import.meta.env.PUBLIC_MAX_HISTORY_MESSAGES || '9')
 
   createEffect(() => (isStick() && smoothToBottom()))
@@ -36,9 +33,6 @@ export default () => {
       if (sessionStorage.getItem('messageList'))
         setMessageList(JSON.parse(sessionStorage.getItem('messageList')))
 
-      if (sessionStorage.getItem('systemRoleSettings'))
-        setCurrentSystemRoleSettings(sessionStorage.getItem('systemRoleSettings'))
-
       if (localStorage.getItem('stickToBottom') === 'stick')
         setStick(true)
     } catch (err) {
@@ -53,7 +47,6 @@ export default () => {
 
   const handleBeforeUnload = () => {
     sessionStorage.setItem('messageList', JSON.stringify(messageList()))
-    sessionStorage.setItem('systemRoleSettings', currentSystemRoleSettings())
     isStick() ? localStorage.setItem('stickToBottom', 'stick') : localStorage.removeItem('stickToBottom')
   }
 
@@ -91,12 +84,6 @@ export default () => {
       const controller = new AbortController()
       setController(controller)
       const requestMessageList = messageList().slice(-maxHistoryMessages)
-      if (currentSystemRoleSettings()) {
-        requestMessageList.unshift({
-          role: 'system',
-          content: currentSystemRoleSettings(),
-        })
-      }
       const timestamp = Date.now()
       const response = await fetch('/api/generate', {
         method: 'POST',
@@ -204,14 +191,6 @@ export default () => {
 
   return (
     <div my-6>
-      <SystemRoleSettings
-        canEdit={() => messageList().length === 0}
-        systemRoleEditing={systemRoleEditing}
-        setSystemRoleEditing={setSystemRoleEditing}
-        currentSystemRoleSettings={currentSystemRoleSettings}
-        setCurrentSystemRoleSettings={setCurrentSystemRoleSettings}
-        temperatureSetting={temperatureSetting}
-      />
       <Index each={messageList()}>
         {(message, index) => (
           <MessageItem
@@ -243,7 +222,7 @@ export default () => {
             ref={inputRef!}
             disabled={systemRoleEditing()}
             onKeyDown={handleKeydown}
-            placeholder="Enter something..."
+            placeholder="Algorithm question..."
             autocomplete="off"
             autofocus
             onInput={() => {
@@ -261,13 +240,6 @@ export default () => {
           </button>
         </div>
       </Show>
-      <div class="fixed bottom-5 left-5 rounded-md hover:bg-slate/10 w-fit h-fit transition-colors active:scale-90" class:stick-btn-on={isStick()}>
-        <div>
-          <button class="p-2.5 text-base" title="stick to bottom" type="button" onClick={() => setStick(!isStick())}>
-            <div i-ph-arrow-line-down-bold />
-          </button>
-        </div>
-      </div>
     </div>
   )
 }

@@ -1,12 +1,12 @@
-# ChatGPT-API Demo
+# AlgorithmGPT-API Demo
 
 [English](./README.md) | 简体中文
 
 一个基于 [OpenAI GPT-3.5 Turbo API](https://platform.openai.com/docs/guides/chat) 的 demo。
 
-**🍿 在线预览**: https://chatgpt.ddiu.me
+**🍿 在线预览**: https://AlgorithmGPT.ddiu.me
 
-**🏖️ V2 版本 (Beta)**: https://v2.chatgpt.ddiu.me
+**🏖️ V2 版本 (Beta)**: https://v2.AlgorithmGPT.ddiu.me
 
 > ⚠️ 注意：我们的 API 密钥限制已用尽。所以演示站点现在不可用。
 
@@ -45,7 +45,7 @@
 
 ### 部署在 Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fddiu8081%2Fchatgpt-demo&env=OPENAI_API_KEY&envDescription=OpenAI%20API%20Key&envLink=https%3A%2F%2Fplatform.openai.com%2Faccount%2Fapi-keys)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fddiu8081%2FAlgorithmGPT-demo&env=OPENAI_API_KEY&envDescription=OpenAI%20API%20Key&envLink=https%3A%2F%2Fplatform.openai.com%2Faccount%2Fapi-keys)
 
 
 
@@ -53,17 +53,17 @@
 >
 > 携带[`SITE_PASSWORD`](#environment-variables)进行部署
 >
-> <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fddiu8081%2Fchatgpt-demo&env=OPENAI_API_KEY&env=SITE_PASSWORD&envDescription=OpenAI%20API%20Key&envLink=https%3A%2F%2Fplatform.openai.com%2Faccount%2Fapi-keys" alt="Deploy with Vercel" target="_blank"><img src="https://vercel.com/button" alt="Deploy with Vercel" height=24 style="vertical-align: middle; margin-right: 4px;"></a>
+> <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fddiu8081%2FAlgorithmGPT-demo&env=OPENAI_API_KEY&env=SITE_PASSWORD&envDescription=OpenAI%20API%20Key&envLink=https%3A%2F%2Fplatform.openai.com%2Faccount%2Fapi-keys" alt="Deploy with Vercel" target="_blank"><img src="https://vercel.com/button" alt="Deploy with Vercel" height=24 style="vertical-align: middle; margin-right: 4px;"></a>
 
 ![image](https://cdn.jsdelivr.net/gh/yzh990918/static@master/20230310/image.4wzfb79qt7k0.webp)
 
 ### 部署在 Netlify
 
-[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ddiu8081/chatgpt-demo#OPENAI_API_KEY=&HTTPS_PROXY=&OPENAI_API_BASE_URL=&HEAD_SCRIPTS=&PUBLIC_SECRET_KEY=&OPENAI_API_MODEL=&SITE_PASSWORD=)
+[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ddiu8081/AlgorithmGPT-demo#OPENAI_API_KEY=&HTTPS_PROXY=&OPENAI_API_BASE_URL=&HEAD_SCRIPTS=&PUBLIC_SECRET_KEY=&OPENAI_API_MODEL=&SITE_PASSWORD=)
 
 **分步部署教程：**
 
-1. [Fork](https://github.com/ddiu8081/chatgpt-demo/fork) 此项目，前往 [https://app.netlify.com/start](https://app.netlify.com/start) 新建站点，选择你 `fork` 完成的项目，将其与 `GitHub` 帐户连接。
+1. [Fork](https://github.com/ddiu8081/AlgorithmGPT-demo/fork) 此项目，前往 [https://app.netlify.com/start](https://app.netlify.com/start) 新建站点，选择你 `fork` 完成的项目，将其与 `GitHub` 帐户连接。
 
 ![image](https://cdn.jsdelivr.net/gh/yzh990918/static@master/20230310/image.3nlt4hgzb16o.webp)
 
@@ -79,11 +79,11 @@
 ![image](https://cdn.jsdelivr.net/gh/yzh990918/static@master/20230310/image.e0n7c0zaen4.webp)
 
 ### 部署在 Docker
-部署之前请确认 `.env` 文件正常配置，环境变量参考下方文档，[Docker Hub address](https://hub.docker.com/r/ddiu8081/chatgpt-demo).
+部署之前请确认 `.env` 文件正常配置，环境变量参考下方文档，[Docker Hub address](https://hub.docker.com/r/ddiu8081/AlgorithmGPT-demo).
 
 **一键运行**
 ```bash
-docker run --name=chatgpt-demo -e OPENAI_API_KEY=YOUR_OPEN_API_KEY -p 3000:3000 -d ddiu8081/chatgpt-demo:latest
+docker run --name=AlgorithmGPT-demo -e OPENAI_API_KEY=YOUR_OPEN_API_KEY -p 3000:3000 -d ddiu8081/AlgorithmGPT-demo:latest
 ```
 `-e` 在容器中定义环境变量。
 
@@ -92,9 +92,9 @@ docker run --name=chatgpt-demo -e OPENAI_API_KEY=YOUR_OPEN_API_KEY -p 3000:3000 
 version: '3'
 
 services:
-  chatgpt-demo:
-    image: ddiu8081/chatgpt-demo:latest
-    container_name: chatgpt-demo
+  AlgorithmGPT-demo:
+    image: ddiu8081/AlgorithmGPT-demo:latest
+    container_name: AlgorithmGPT-demo
     restart: always
     ports:
       - '3000:3000'
@@ -132,8 +132,8 @@ docker-compose down
 ![Create Application](https://cdn.jsdelivr.net/gh/yzh990918/static@master/20230609/install-on-sealos-3.5x5exqk0o8lc.webp)
 
 ```shell
-App Name: chatgpt-demo
-Image Name: ddiu8081/chatgpt-demo:latest
+App Name: AlgorithmGPT-demo
+Image Name: ddiu8081/AlgorithmGPT-demo:latest
 CPU: 0.5Core
 Memory: 1G
 Container Ports: 3000
@@ -177,15 +177,15 @@ Fork 项目后，您需要在 Fork 项目的操作页面上手动启用工作流
 
 Q: TypeError: fetch failed (can't connect to OpenAI Api)
 
-A: 配置环境变量 `HTTPS_PROXY`，参考：https://github.com/ddiu8081/chatgpt-demo/issues/34
+A: 配置环境变量 `HTTPS_PROXY`，参考：https://github.com/ddiu8081/AlgorithmGPT-demo/issues/34
 
 Q: throw new TypeError(${context} is not a ReadableStream.)
 
-A: Node 版本需要在 `v18` 或者更高，参考：https://github.com/ddiu8081/chatgpt-demo/issues/65
+A: Node 版本需要在 `v18` 或者更高，参考：https://github.com/ddiu8081/AlgorithmGPT-demo/issues/65
 
 Q: Accelerate domestic access without the need for proxy deployment tutorial?
 
-A: 你可以参考此教程：https://github.com/ddiu8081/chatgpt-demo/discussions/270
+A: 你可以参考此教程：https://github.com/ddiu8081/AlgorithmGPT-demo/discussions/270
 
 ## 参与贡献
 
@@ -193,8 +193,8 @@ A: 你可以参考此教程：https://github.com/ddiu8081/chatgpt-demo/discussio
 
 感谢我们所有的支持者！🙏
 
-[![img](https://contributors.nn.ci/api?repo=ddiu8081/chatgpt-demo)](https://github.com/ddiu8081/chatgpt-demo/graphs/contributors)
+[![img](https://contributors.nn.ci/api?repo=ddiu8081/AlgorithmGPT-demo)](https://github.com/ddiu8081/AlgorithmGPT-demo/graphs/contributors)
 
 ## License
 
-MIT © [ddiu8081](https://github.com/ddiu8081/chatgpt-demo/blob/main/LICENSE)
+MIT © [ddiu8081](https://github.com/ddiu8081/AlgorithmGPT-demo/blob/main/LICENSE)

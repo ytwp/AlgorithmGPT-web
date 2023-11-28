@@ -25,9 +25,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       injectRegister: 'inline',
       manifest: {
-        name: 'ChatGPT-API Demo',
-        short_name: 'ChatGPT Demo',
-        description: 'A demo repo based on OpenAI API',
+        name: 'AlgorithmGPT',
+        short_name: 'AlgorithmGPT',
+        description: 'AlgorithmGPT',
         theme_color: '#212129',
         background_color: '#ffffff',
         icons: [

@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  chatgpt-demo:
-    image: ddiu8081/chatgpt-demo:latest
-    container_name: chatgpt-demo
+  AlgorithmGPT:
+    image: ddiu8081/AlgorithmGPT:latest
+    container_name: AlgorithmGPT
     restart: always
     ports:
         - "3000:3000"
