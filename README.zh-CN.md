@@ -29,7 +29,7 @@
 ### 起步运行
 
 1. 安装依赖
-   ```bash
+   ```bash 
     pnpm install
    ```
 2. 复制 `.env.example` 文件，重命名为 `.env`，并添加你的 [OpenAI API key](https://platform.openai.com/account/api-keys) 到 `.env` 文件中
