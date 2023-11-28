@@ -7,7 +7,7 @@ import type { APIRoute } from 'astro'
 
 const apiKey = import.meta.env.OPENAI_API_KEY
 const httpsProxy = import.meta.env.HTTPS_PROXY
-const baseUrl = 'https://algorithm.flyingduck.cn'
+const baseUrl = 'https://jp.flyingduck.cn/api'
 const sitePassword = import.meta.env.SITE_PASSWORD || ''
 const passList = sitePassword.split(',') || []
 
